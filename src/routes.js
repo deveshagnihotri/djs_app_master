@@ -1,34 +1,35 @@
-import React from "react";
-import { Platform, Image } from "react-native";
+import React from 'react';
+import { Platform, Image } from 'react-native';
 import {
   createStackNavigator,
   createBottomTabNavigator,
   createSwitchNavigator,
-  createAppContainer
-} from "react-navigation";
-import Logo from "./utills/logo";
+  createAppContainer,
+  BottomTabBar
+} from 'react-navigation';
+import Logo from './utills/logo';
 
 //SCREENS
-import config from "./config/index";
-import SignIn from "./components/auth";
-import Artist from "./components/artists";
-import Profile from "./components/profile/profile";
-import Home from "./components/home/index";
-import AboutArtist from "./components/artists/about";
-import Upload from "./components/upload/index";
-import Search from "./components/search/index";
-import Article from "./components/home/article";
-import EditProfile from "./components/profile/editProfile";
+import config from './config/index';
+import SignIn from './components/auth';
+import Artist from './components/artists';
+import Profile from './components/profile/profile';
+import Home from './components/home/index';
+import AboutArtist from './components/artists/about';
+import Upload from './components/upload/index';
+import Search from './components/search/index';
+import Article from './components/home/article';
+import EditProfile from './components/profile/editProfile';
 
 const headerConf = {
-  headerLayoutPreset: "center",
+  headerLayoutPreset: 'center',
   defaultNavigationOptions: {
     headerStyle: {
-      backgroundColor: "#424242",
+      backgroundColor: '#f5f5f5',
       fontSize: 20
     },
     headerTitle: Logo,
-    headerTintColor: "white"
+    headerTintColor: 'white'
   }
 };
 
@@ -60,7 +61,8 @@ const HomeStack = createStackNavigator(
     Article: {
       screen: Article,
       defaultNavigationOptions: ({ navigation }) => ({
-        tabBarVisible: true
+        tabBarVisible: true,
+        headerTitle: Logo
       })
     }
   }
@@ -86,39 +88,39 @@ const AppStack = createBottomTabNavigator(
   {
     tabBarOptions: {
       showLabel: false,
-      activeTintColor: "#fff",
-      activeBackgroundColor: "#BDBDBD",
+      activeTintColor: '#fff',
+      activeBackgroundColor: '#BDBDBD',
       style: {
-        backgroundColor: "#fff"
+        backgroundColor: '#fff'
       }
     },
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
-        if (routeName === "Home") {
+        if (routeName === 'Home') {
           return (
             <Image
               source={config.images.homeIcon}
-              resizeMode={"contain"}
+              resizeMode={'contain'}
               style={{ width: 35, height: 35 }}
             />
           );
-        } else if (routeName === "Search") {
+        } else if (routeName === 'Search') {
           return (
             <Image
               source={config.images.labelIcon}
               style={{ width: 35, height: 35 }}
             />
           );
-        } else if (routeName === "Artist") {
+        } else if (routeName === 'Artist') {
           return (
             <Image
               source={config.images.djIcon}
-              resizeMode={"contain"}
+              resizeMode={'contain'}
               style={{ width: 35, height: 35 }}
             />
           );
-        } else if (routeName === "Upload") {
+        } else if (routeName === 'Upload') {
           return (
             <Image
               source={config.images.uploadIcon}
@@ -143,7 +145,7 @@ const AuthStack = createStackNavigator(
     SignIn: SignIn
   },
   {
-    headerMode: "none"
+    headerMode: 'none'
   }
 );
 
@@ -156,7 +158,7 @@ export const RootNavigator = () => {
         Artist: ArtistStack
       },
       {
-        initialRouteName: "Auth"
+        initialRouteName: 'Auth'
       }
     )
   );

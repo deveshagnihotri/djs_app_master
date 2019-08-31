@@ -35,6 +35,8 @@ target 'djapp_master' do
 
   pod 'RCTYouTube', :path => '../node_modules/react-native-youtube'
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
   target 'djapp_masterTests' do
     inherit! :search_paths
     # Pods for testing

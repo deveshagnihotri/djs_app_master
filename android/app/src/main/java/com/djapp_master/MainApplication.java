@@ -7,6 +7,7 @@ import com.facebook.react.PackageList;
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
+import com.imagepicker.ImagePickerPackage;
 import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.brentvatne.react.ReactVideoPackage;
@@ -34,9 +35,11 @@ public class MainApplication extends Application implements ReactApplication {
           // packages.add(new MyReactNativePackage());
           
             new MainReactPackage();
+            new ImagePickerPackage();
             new ReactNativeYouTube();
             new ReactVideoPackage();
             new RNGestureHandlerPackage() ;
+            // new ImagePickerPackage(R.style.my_dialog_style);
       return packages;
     }
 
